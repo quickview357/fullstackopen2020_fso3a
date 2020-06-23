@@ -11,9 +11,9 @@ app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
 ```
 - Nodejs sử dụng [CommonJS](https://requirejs.org/docs/commonjs.html) modules để load đối tượng http
-- Khi nào Node hỗ trợ ES6 thì chúng ta có thể dùng
+- Khi nào Node hỗ trợ ES6 thì chúng ta có thể dùng code sau:
 ```js
 import http from 'http'
 ```
 - Lý do cho việc sử dụng [CommonJS](https://requirejs.org/docs/commonjs.html) là vì Node ecosystem có những modules phục vụ cho việc này trước khi Javascript hỗ trợ chúng.
-- Phần Header có các loại [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) là: 'text/plain', 'text/html', 'application/json',
+- Phần Header có các loại [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) là: 'text/plain', 'text/html', 'application/json',...
