@@ -1,18 +1,19 @@
 # fullstackopen2020_fso3a: a1_webserver
-* Sử dụng thư viện nodemon để khi chúng ta chỉnh sửa lại code thì ko cần restart server mà chỉ cần refresh browser.
-```html
-npm install --save-dev nodemon
-```
-* add đoạn code sau vào file package.json
+* Tạo web server đơn giản với node
 ```js
-"scripts": {
-  "dev": "nodemon index.js"
- },
+const http = require('http')
+const app = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('Hello World')
+})
+const PORT = 3001
+app.listen(PORT)
+console.log(`Server running on port ${PORT}`)
 ```
-* start server bằng cách:
-```html
-  npm run dev
+- Nodejs sử dụng [CommonJS](https://requirejs.org/docs/commonjs.html) modules để load đối tượng http
+- Khi nào Node hỗ trợ ES6 thì chúng ta có thể dùng
+```js
+import http from 'http'
 ```
-quang
-tung  
-
+- Lý do cho việc sử dụng [CommonJS](https://requirejs.org/docs/commonjs.html) là vì Node ecosystem có những modules phục vụ cho việc này trước khi Javascript hỗ trợ chúng.
+- Phần Header có các loại [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) là: 'text/plain', 'text/html', 'application/json',
