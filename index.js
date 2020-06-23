@@ -1,4 +1,10 @@
-const http = require('http')
+const express = require('express')
+const app = express()
+
+const port = 5000
+app.listen(port, ()=>{
+  console.log(`Server running on port ${port}`)
+})
 
 let notes = [
   {
@@ -21,14 +27,10 @@ let notes = [
   }
 ]
 
-const app = http.createServer((req, res) => {
-  //res.writeHead(200, { 'Content-Type': 'text/html' })
-  //res.end('Hello world, text has been change to test nodemon, using nodeon to then we do not need to turn of server')
-  res.writeHead(200, {'Content-Type':'application/json'})
-  res.end(JSON.stringify(notes))
-
+app.get('/', (req,res)=>{
+  res.send('quang')
 })
 
-const port = 5000
-app.listen(port)
-console.log(`Server running on port ${port}`)
+app.get('/api/nodes', (req,res)=>{
+  res.json(notes)
+})
