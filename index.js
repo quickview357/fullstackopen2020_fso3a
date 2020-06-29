@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+app.use(express.json())
 
 const port = 5000
 app.listen(port, ()=>{
@@ -38,6 +39,7 @@ app.get('/api/notes', (request, response) => {
 app.get('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   const note = notes.find(note => note.id === id)
+  console.log("test debugger");
   
   if (note) {
     response.json(note)
@@ -51,4 +53,12 @@ app.delete('/api/notes/:id', (request, response) => {
   notes = notes.filter(note => note.id !== id)
 
   response.status(204).end()
+})
+
+//đưa data vào body và sử dụng phương thức post để đẩy data lên
+app.post('/api/notes', (request, response) => {
+  const note = request.body
+  console.log(note)
+
+  response.json(note)
 })
